@@ -1,0 +1,42 @@
+
+<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow"
+	data-scroll-to-active="true" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="leftsidebar">
+
+	<div class="main-menu-content">
+		<ul class="navigation navigation-main" id="main-menu-navigation"
+			data-menu="menu-navigation"
+			th:with="path=${#httpServletRequest.getServletPath()}">
+
+			<li th:if="${roleName == 'ROLE_ADMIN'}"
+				th:classappend="${#strings.startsWith(path,'/admin/view')? 'active' : ''}"><a
+				th:href="@{/admin/view}"><span class="menu-title"
+					data-i18n="nav.dash.main">Users</span></a></li>
+			<li class=" nav-item"><a><span class="menu-title"
+					data-i18n="nav.dash.main">Status</span></a>
+				<ul class="menu-content">
+					<li
+						th:classappend="${#strings.startsWith(path,'/status/all')? 'active' : ''}"><a
+						th:href="@{/status/all}"> <span class="menu-title"
+							data-i18n="nav.dash.main">View</span>
+					</a></li>
+					<li
+						th:classappend="${#strings.startsWith(path,'/status/create')? 'active' : ''}"><a
+						th:href="@{/status/create}"> <span class="menu-title"
+							data-i18n="nav.dash.main">Create</span>
+					</a></li>
+					<li
+						th:classappend="${#strings.startsWith(path,'/status/mystatus')? 'active' : ''}"><a
+						th:href="@{/status/mystatus}"> <span class="menu-title"
+							data-i18n="nav.dash.main">My status</span>
+					</a></li>
+				</ul></li>
+		</ul>
+	</div>
+</div>
+
+
+<script>
+	
+</script>
+
